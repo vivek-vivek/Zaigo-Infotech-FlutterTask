@@ -41,8 +41,8 @@ dependencies:
   geocoding: ^2.1.0
   geolocator: ^9.0.2
   google_maps_flutter: ^2.2.6
-  flutter_neumorphic: ^3.2.0
   glassmorphism: ^3.0.0
+  flutter_neumorphic: ^3.2.0
 
 dev_dependencies:
   flutter_test:
