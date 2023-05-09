@@ -26,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    Future.wait([LawyersServices().callLawyerApi(context)]);
+    Future.wait([LawyersServices().connectionTask(context)]);
   }
 
   @override
@@ -41,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
           onPressed: () {
             Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (_) =>  AdressSubMissionScreen(),
+                builder: (_) => AdressSubMissionScreen(),
               ),
             );
           },

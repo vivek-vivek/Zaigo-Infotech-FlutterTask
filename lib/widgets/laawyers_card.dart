@@ -24,12 +24,20 @@ class LawyersCard extends StatelessWidget {
           ),
         );
       },
-      leading: CircleAvatar(
-        backgroundImage: NetworkImage(home.lawyers[index].profilePicture),
-        backgroundColor:
-            Colors.primaries[Random().nextInt(Colors.primaries.length)],
-        child: Text(home.lawyers[index].name.substring(0, 1).toUpperCase()),
-      ),
+      leading: home.isConected
+          ? CircleAvatar(
+              backgroundImage: NetworkImage(home.lawyers[index].profilePicture),
+              backgroundColor:
+                  Colors.primaries[Random().nextInt(Colors.primaries.length)],
+              child:
+                  Text(home.lawyers[index].name.substring(0, 1).toUpperCase()),
+            )
+          : CircleAvatar(
+              backgroundColor:
+                  Colors.primaries[Random().nextInt(Colors.primaries.length)],
+              child:
+                  Text(home.lawyers[index].name.substring(0, 1).toUpperCase()),
+            ),
       title: Text(
         home.lawyers[index].name,
         style: const TextStyle(

@@ -18,6 +18,9 @@ class LoginProvider with ChangeNotifier {
     notifyListeners();
   }
 
-
-
+  void disposesControllers() {
+    phone.clear();
+    password.clear();
+    notifyListeners();
+  }
 }

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -27,6 +29,7 @@ class PhoneNumberFeild extends StatelessWidget {
           }
           return null;
         },
+        onChanged: (value) => log(value.toString()),
         inputFormatters: [FilteringTextInputFormatter.digitsOnly],
         keyboardType: const TextInputType.numberWithOptions(decimal: true),
         decoration: const InputDecoration(
@@ -51,6 +54,7 @@ class PasswordFeild extends StatelessWidget {
           color: Colors.tealAccent,
           borderRadius: BorderRadius.all(Radius.circular(20))),
       child: TextFormField(
+        onChanged: (value) => log(value.toString()),
         obscureText: true,
         controller: Provider.of<LoginProvider>(context).password,
         decoration: InputDecoration(
