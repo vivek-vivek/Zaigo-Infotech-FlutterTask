@@ -13,6 +13,7 @@ import 'package:zaigo_infotech_flutter_task/res/services/lawyers_services.dart';
 import 'package:zaigo_infotech_flutter_task/viewmodel/adress_submission_screen.dart';
 import 'package:zaigo_infotech_flutter_task/widgets/exit_dialoge_box.dart';
 
+import '../utils/internet_connection_handler.dart';
 import '../widgets/laawyers_card.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -26,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    Future.wait([LawyersServices().connectionTask(context)]);
+    Future.wait([connectionTask(context)]);
   }
 
   @override
