@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:provider/provider.dart';
@@ -7,7 +8,7 @@ import '../res/hive/offline_data_box.dart';
 import '../res/provider/home_provider.dart';
 
 // check interncet Conection and perform offline and online data services
-Future connectionTask(context) async {
+Future<void> connectionTask(context) async {
   final home = Provider.of<HomeProvider>(context, listen: false);
   // Perform an address lookup
   try {
@@ -15,12 +16,14 @@ Future connectionTask(context) async {
     final result = await InternetAddress.lookup('google.com');
 
     if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
+      home.changeConecetionSate(true);
       await LawyersServices().callLawyerApi(context);
     }
   }
   // Device has no internet access
   on SocketException catch (_) {
     home.changeConecetionSate(false);
+    log("not connected");
     getLawyers(context);
   }
 }
