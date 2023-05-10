@@ -62,11 +62,7 @@ class Authentication {
           response.data["access_token"],
         );
         userLogin.disposesControllers();
-        CustomSnackBars.signup(
-          content: 'Logined successfully !',
-          bgColor: const Color.fromARGB(255, 44, 133, 112),
-          textColor: Colors.black,
-        );
+    
         // Home page
         Navigator.pushReplacementNamed(context, '/home');
       }

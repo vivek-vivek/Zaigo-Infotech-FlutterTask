@@ -39,6 +39,10 @@ Future getLawyers(context) async {
           rating: lawyer.rating,
           ranking: lawyer.ranking))
       .toList();
+
+  /// clear main list to avoid duplication
+  home.clearLawyerList();
+
   // Passing the List<Datum> to the method
   for (var element in datumList) {
     home.addLawyerRespone(element);

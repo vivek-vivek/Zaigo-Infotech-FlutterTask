@@ -63,6 +63,7 @@ class LawyersServices {
               lawyer.ranking,
             );
             var lawyerBox = Hive.box<Lawyer>('lawyerBox');
+            await lawyerBox.clear();
             await lawyerBox.put(lawyer.id, lawyerModel);
           } catch (error) {
             log(error.toString());
