@@ -40,31 +40,33 @@ class LawyersServices {
 
         await home.clearLawyerList();
 
-        for (final lawyer in lawyerModel.data) {
-          home.addLawyerRespone(lawyer);
+        for (int i = 0; i < lawyerModel.data.length - 1; i++) {
+          home.addLawyerRespone(lawyerModel.data[i]);
+
+          log(lawyerModel.data[i].id.toString());
 
           try {
-            final Lawyer lawyerModel = Lawyer(
-              lawyer.id,
-              lawyer.uuid,
-              lawyer.name,
-              lawyer.address,
-              lawyer.state,
-              lawyer.fieldOfExpertise,
-              lawyer.bio,
-              lawyer.level,
-              lawyer.hoursLogged,
-              lawyer.phoneNo,
-              lawyer.email,
-              lawyer.areasOfPractise,
-              lawyer.serviceOffered,
-              lawyer.profilePicture,
-              lawyer.rating,
-              lawyer.ranking,
+            final Lawyer offlineLawyerModel = Lawyer(
+              lawyerModel.data[i].id,
+              lawyerModel.data[i].uuid,
+              lawyerModel.data[i].name,
+              lawyerModel.data[i].address,
+              lawyerModel.data[i].state,
+              lawyerModel.data[i].fieldOfExpertise,
+              lawyerModel.data[i].bio,
+              lawyerModel.data[i].level,
+              lawyerModel.data[i].hoursLogged,
+              lawyerModel.data[i].phoneNo,
+              lawyerModel.data[i].email,
+              lawyerModel.data[i].areasOfPractise,
+              lawyerModel.data[i].serviceOffered,
+              lawyerModel.data[i].profilePicture,
+              lawyerModel.data[i].rating,
+              lawyerModel.data[i].ranking,
             );
             var lawyerBox = Hive.box<Lawyer>('lawyerBox');
-            await lawyerBox.clear();
-            await lawyerBox.put(lawyer.id, lawyerModel);
+
+            await lawyerBox.put(lawyerModel.data[i].id, offlineLawyerModel);
           } catch (error) {
             log(error.toString());
           }

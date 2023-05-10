@@ -42,7 +42,7 @@ Future getLawyers(context) async {
 
   /// clear main list to avoid duplication
   home.clearLawyerList();
-
+  
   // Passing the List<Datum> to the method
   for (var element in datumList) {
     home.addLawyerRespone(element);
