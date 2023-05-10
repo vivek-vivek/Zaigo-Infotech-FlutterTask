@@ -78,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
               color: Colors.blue, // change the color of the indicator
               displacement: 50.0, // change the displacement of the indicator
               child: ListView.separated(
-                itemCount: home.lawyers.length,
+                itemCount: 5,
                 itemBuilder: (context, index) =>
                     LawyersCard(home: home, index: index),
                 separatorBuilder: (context, index) =>
